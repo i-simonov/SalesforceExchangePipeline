@@ -1,0 +1,4 @@
+public interface FilterInterface {
+    void setup(MessageStruct Message);
+    void process(MessageStruct Message);
+}
