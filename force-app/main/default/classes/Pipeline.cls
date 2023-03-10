@@ -1,6 +1,8 @@
-public class Pipeline {
+public class Pipeline{
 
-    private filterAbstract firstFilter = null;
+    public class AWException extends exception{}
+
+    protected filterAbstract firstFilter = null;
 
     public void addFilter(FilterAbstract filter){
         
@@ -17,9 +19,12 @@ public class Pipeline {
         
         FilterAbstract lastFilter = firstFilter;
           
+    	System.debug('lastFilter:' + lastFilter);
+     	//System.debug('lastFilter.nextFilter(null):' + lastFilter.nextFilter(null));
+       
         while(lastFilter.nextFilter(null) != null){
             
-           lastFilter	= lastFilter.nextFilter(filter); 
+           lastFilter	= lastFilter.nextFilter(null); 
         }
         
         lastFilter.nextFilter(filter);
@@ -28,8 +33,8 @@ public class Pipeline {
     
         if (firstFilter == null) {
             
-            System.debug('Ups, null at the first Filter');
-            return;
+            throw new AWException('Null at the pilace of the first Filter');
+            
         }
         MessageStruct Message = new MessageStruct();
         
@@ -37,5 +42,7 @@ public class Pipeline {
         firstFilter.process(Message);
 
     }
-
+    public filterAbstract getFirstFilter(){
+        return firstFilter;
+    }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Object__c</fullName>
+    <fullName>ObjectId__c</fullName>
     <deleteConstraint>Restrict</deleteConstraint>
     <externalId>false</externalId>
-    <label>Object</label>
+    <label>ObjectId</label>
     <referenceTo>Account</referenceTo>
     <relationshipName>Account_committed_changes</relationshipName>
     <required>true</required>

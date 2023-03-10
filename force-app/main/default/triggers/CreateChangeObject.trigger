@@ -4,10 +4,11 @@ trigger CreateChangeObject on Account (after update, after insert) {
         
         String JSONAccount = JSON.serialize(accRecord);
         
-        AccountQueue__c accountChange	= new AccountQueue__c(Object__c 		= accRecord.id
-                                                                                ,Message__c 	= JSONAccount
-                                                                                ,Recipient__c 	= '1C' 
-                                                                                ,TimeStamp__c	= System.currentTimeMillis());
+        UploadQueue__c accountChange	= new UploadQueue__c(ObjectId__c 		= accRecord.id
+                                                              ,ObjectType__c	= ((SObject)accRecord).getSObjectType().getDescribe().getName()+''
+                                                              ,Message__c 		= JSONAccount
+                                                              ,Recipient__c 	= '1C' 
+                                                              ,TimeStamp__c		= System.currentTimeMillis());
          
         insert accountChange;
     }

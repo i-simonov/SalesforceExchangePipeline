@@ -1,8 +1,8 @@
 public class Starter {
 	
-    public void Start(Pipeline__c piplineObj){
+    public static void Start(Pipeline__c pipelineObj){
 
-        Pipeline PipelineInts	=  PipelineFactory.createPipeline(piplineObj);
+        Pipeline PipelineInts	=  PipelineFactory.createPipeline(pipelineObj);
  
         System.debug('Redy to process pipeline' + PipelineInts);
        	

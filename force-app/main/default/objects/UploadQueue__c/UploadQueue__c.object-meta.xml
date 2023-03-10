@@ -154,12 +154,12 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
     <gender>Feminine</gender>
-    <label>AccountQueue</label>
+    <label>UploadQueue</label>
     <nameField>
-        <label>Account Queue</label>
+        <label>Upload Queue record</label>
         <type>Text</type>
     </nameField>
-    <pluralLabel>AccountQueue</pluralLabel>
+    <pluralLabel>UploadQueue</pluralLabel>
     <searchLayouts></searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>

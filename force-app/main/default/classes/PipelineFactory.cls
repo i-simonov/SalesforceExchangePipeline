@@ -20,7 +20,8 @@ public class PipelineFactory {
            	pipelineInstance.addFilter(filter);
         }      
            
-    	return pipelineInstance;
+        System.debug('Returning from createPipeline()');
+		return pipelineInstance;
               
         
     } 
