@@ -1,8 +1,9 @@
 public class Pipeline{
 
-    public class AWException extends exception{}
+    public class PiplelineException extends exception{}
 
     protected filterAbstract firstFilter = null;
+    public UploadSettings__c uploadSettings;
 
     public void addFilter(FilterAbstract filter){
         
@@ -33,10 +34,12 @@ public class Pipeline{
     
         if (firstFilter == null) {
             
-            throw new AWException('Null at the pilace of the first Filter');
+            throw new PiplelineException('Null at the pilace of the first Filter');
             
         }
-        MessageStruct Message = new MessageStruct();
+        
+        MessageStruct Message 	= new MessageStruct();
+        Message.pipeline	= this;
         
         firstFilter.setup(Message);
         firstFilter.process(Message);

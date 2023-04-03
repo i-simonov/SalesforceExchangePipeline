@@ -5,7 +5,12 @@ public class TestStarter {
     static void dataCreation() {
     
     	//arrange
-                      
+        Account acct = new Account(Name='Test Account');       
+        Database.insert(acct);
+ 
+        Account acct2 = new Account(Name='Test Account2');
+        Database.insert(acct2);
+                     
         Pipeline__c testPipeline = new Pipeline__c(Name='Upload pipeline');
 
         insert testPipeline;
@@ -16,12 +21,18 @@ public class TestStarter {
        	pipelineFilterList.add(new PipelineFilter__c(Name = 'getter'
                                                     ,Pipeline__c = testPipeline.Id
                                                     ,Order__c	= 0));
+       	pipelineFilterList.add(new PipelineFilter__c(Name = 'converter'
+                                                    ,Pipeline__c = testPipeline.Id
+                                                    ,Order__c	= 1));
         pipelineFilterList.add(new PipelineFilter__c(Name = 'composer'
                                                    	,Pipeline__c = testPipeline.Id
-                                                   	,Order__c	= 1));
+                                                   	,Order__c	= 2));
         pipelineFilterList.add(new PipelineFilter__c(Name = 'sender'
                                                     ,Pipeline__c = testPipeline.Id
-                                                    ,Order__c	= 2));
+                                                    ,Order__c	= 3));
+        pipelineFilterList.add(new PipelineFilter__c(Name = 'eraser2'
+                                                    ,Pipeline__c = testPipeline.Id
+                                                    ,Order__c	= 4));
     	insert pipelineFilterList;
     }
 
@@ -34,6 +45,7 @@ public class TestStarter {
             	starter.Start(pipelineObj);
             test.stopTest();
            
+            
         }
 
         
